@@ -5,4 +5,8 @@
     <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Metaphor.Model\Metaphor.Model.vbproj" />
+  </ItemGroup>
+
 </Project>

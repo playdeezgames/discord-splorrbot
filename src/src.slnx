@@ -6,4 +6,8 @@
     <Project Path="Metaphor.DiscordBot/Metaphor.DiscordBot.csproj" Id="065eec51-62d8-424e-8704-64e8978b8f74" />
     <Project Path="Metaphor.Spectre/Metaphor.Spectre.vbproj" Id="2326423a-70fb-4a35-9e94-a918f2213467" />
   </Folder>
+  <Folder Name="/_STUFF/">
+    <File Path="../README.md" />
+  </Folder>
+  <Project Path="Metaphor.Model/Metaphor.Model.vbproj" Id="798076a1-27ff-418f-80fc-ff97e45836fb" />
 </Solution>

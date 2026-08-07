@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Metaphor.Spectre</RootNamespace>
+    <RootNamespace>Metaphor.Model</RootNamespace>
     <TargetFramework>net10.0</TargetFramework>
     <OptionStrict>On</OptionStrict>
   </PropertyGroup>
@@ -14,13 +13,5 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Spectre.Console" Version="0.57.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Metaphor.Engine\Metaphor.Engine.vbproj" />
-  </ItemGroup>
 
 </Project>
