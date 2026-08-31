@@ -1,11 +1,24 @@
 Imports Metaphor.Model
+Imports Metaphor.Store
 
-Public Module Host
+Public Class Host
+    Private ReadOnly store As IStore
+
+    Private Sub New(store As IStore)
+        Me.store = store
+    End Sub
     Public Function HandleMessage(userId As UInt64, message As String) As String
-        Return String.Join(
+        Dim data = store.ReadUserData(userId)
+        Dim user = Metaphor.Store.User.Create(data)
+        Dim result = String.Join(
             vbCrLf,
-            UserModel.Create(userId).
+            UserModel.Create(User).
                 HandleCommand(
                     New Queue(Of String)(message.Split(" "c))))
+        store.WriteUserdata(data)
+        Return result
     End Function
-End Module
+    Public Shared Function Create(store As IStore) As Host
+        Return New Host(store)
+    End Function
+End Class

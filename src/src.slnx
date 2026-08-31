@@ -1,4 +1,13 @@
 <Solution>
+  <Folder Name="/1_Data/">
+    <Project Path="Metaphor.Data/Metaphor.Data.vbproj" Id="62b46006-ae57-449c-bb10-502d5ae0c102" />
+  </Folder>
+  <Folder Name="/2_Store/">
+    <Project Path="Metaphor.Store/Metaphor.Store.vbproj" Id="6acd4f13-6dcd-42a4-a1ac-15ab5f48a9da" />
+  </Folder>
+  <Folder Name="/7_Model/">
+    <Project Path="Metaphor.Model/Metaphor.Model.vbproj" Id="798076a1-27ff-418f-80fc-ff97e45836fb" />
+  </Folder>
   <Folder Name="/8_Engine/">
     <Project Path="Metaphor.Engine/Metaphor.Engine.vbproj" Id="9fc4f21e-2ff6-410e-a542-55b95acd696d" />
   </Folder>
@@ -9,5 +18,4 @@
   <Folder Name="/_STUFF/">
     <File Path="../README.md" />
   </Folder>
-  <Project Path="Metaphor.Model/Metaphor.Model.vbproj" Id="798076a1-27ff-418f-80fc-ff97e45836fb" />
 </Solution>

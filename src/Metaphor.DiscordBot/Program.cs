@@ -5,13 +5,18 @@ using NetCord.Logging;
 using NetCord.Rest;
 using NetCord.Services;
 using NetCord.Services.ApplicationCommands;
+Host host = Host.Create(FileStore.Create());
 GatewayClient client = new(new BotToken(File.ReadAllText("E:\\Shhhhhh\\SplorrBot.txt")), new GatewayClientConfiguration
 {
     Intents = default,
     Logger = new ConsoleLogger(),
 });
 ApplicationCommandService<ApplicationCommandContext> applicationCommandService = new();
-applicationCommandService.AddSlashCommand(new SlashCommandBuilder("splorr", "SPLORR!", HandleSPLORR));
+applicationCommandService.AddSlashCommand(
+    new SlashCommandBuilder(
+        "splorr",
+        "SPLORR!",
+        (ApplicationCommandContext context, string message) => host.HandleMessage(context.User.Id, message)));
 applicationCommandService.AddUserCommand(new UserCommandBuilder("Username", (User user) => user.Username));
 applicationCommandService.AddMessageCommand(new MessageCommandBuilder("Length", (RestMessage message) => message.Content.Length.ToString()));
 applicationCommandService.AddModules(typeof(Program).Assembly);
@@ -33,7 +38,3 @@ client.InteractionCreate += async interaction =>
 await applicationCommandService.RegisterCommandsAsync(client.Rest, client.Id);
 await client.StartAsync();
 await Task.Delay(-1);
-static string HandleSPLORR(ApplicationCommandContext context, string message)
-{
-    return Host.HandleMessage(context.User.Id, message);
-}

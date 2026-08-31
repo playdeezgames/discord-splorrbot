@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>Metaphor.Model</RootNamespace>
+    <RootNamespace>Metaphor.Store</RootNamespace>
     <TargetFramework>net10.0</TargetFramework>
     <OptionStrict>On</OptionStrict>
   </PropertyGroup>
@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Metaphor.Store\Metaphor.Store.vbproj" />
+    <ProjectReference Include="..\Metaphor.Data\Metaphor.Data.vbproj" />
   </ItemGroup>
 
 </Project>

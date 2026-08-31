@@ -5,6 +5,7 @@ Module Program
     Private Const QUIT_COMMAND = "/quit"
     Private Const USER_ID As UInt64 = 327506515533496320UL
     Sub Main(args As String())
+        Dim host = Metaphor.Engine.Host.Create(FileStore.Create())
         Do
             Dim command As String = AnsiConsole.Ask(Of String)("[olive]Now What?[/]")
             If command = QUIT_COMMAND Then
