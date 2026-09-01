@@ -9,8 +9,10 @@ Public Class UserModel
     End Sub
     Private Shared ReadOnly tokenHandlers As New Dictionary(Of String, TokenHandler)(StringComparer.CurrentCultureIgnoreCase) From
         {
+            {Commands.BET, AddressOf BetCommand.Handle},
             {Commands.HELP, AddressOf HelpCommand.Handle},
             {Commands.PROMOTE, AddressOf PromoteCommand.Handle},
+            {Commands.RESPAWN, AddressOf RespawnCommand.Handle},
             {Commands.STATUS, AddressOf StatusCommand.Handle},
             {Commands.WORK, AddressOf WorkCommand.Handle}
         }
@@ -27,6 +29,10 @@ Public Class UserModel
 
     Public Shared Function InvalidCommand() As IEnumerable(Of String)
         Return {"Invalid command try `HELP`."}
+    End Function
+
+    Public Shared Function YerDead() As IEnumerable(Of String)
+        Return {"Dead people can't do that. Try `RESPAWN`."}
     End Function
 
     Public Shared Function Create(user As UserData) As IUserModel
