@@ -9,10 +9,9 @@ Public Class Host
     End Sub
     Public Function HandleMessage(userId As UInt64, message As String) As String
         Dim data = store.ReadUserData(userId)
-        Dim user = Metaphor.Store.User.Create(data)
         Dim result = String.Join(
             vbCrLf,
-            UserModel.Create(User).
+            UserModel.Create(data).
                 HandleCommand(
                     New Queue(Of String)(message.Split(" "c))))
         store.WriteUserdata(data)

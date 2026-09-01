@@ -1,17 +1,35 @@
-Imports Metaphor.Store
-
+Imports Metaphor.Data
+Friend Delegate Function TokenHandler(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
 Public Class UserModel
     Implements IUserModel
-    Private ReadOnly user As IUser
+    Private ReadOnly user As UserData
     Private Sub New(
-                   user As IUser)
+                   user As UserData)
         Me.user = user
     End Sub
+    Private Shared ReadOnly tokenHandlers As New Dictionary(Of String, TokenHandler)(StringComparer.CurrentCultureIgnoreCase) From
+        {
+            {Commands.HELP, AddressOf HelpCommand.Handle},
+            {Commands.PROMOTE, AddressOf PromoteCommand.Handle},
+            {Commands.STATUS, AddressOf StatusCommand.Handle},
+            {Commands.WORK, AddressOf WorkCommand.Handle}
+        }
     Public Function HandleCommand(tokens As Queue(Of String)) As IEnumerable(Of String) Implements IUserModel.HandleCommand
-        user.Counter += 1
-        Return {$"Counter is now {user.Counter}."}
+        Dim token As String = Nothing
+        If tokens.TryDequeue(token) Then
+            Dim handler As TokenHandler = Nothing
+            If tokenHandlers.TryGetValue(token, handler) Then
+                Return handler.Invoke(user, token, tokens)
+            End If
+        End If
+        Return InvalidCommand()
     End Function
-    Public Shared Function Create(user As IUser) As IUserModel
+
+    Public Shared Function InvalidCommand() As IEnumerable(Of String)
+        Return {"Invalid command try `HELP`."}
+    End Function
+
+    Public Shared Function Create(user As UserData) As IUserModel
         Return New UserModel(user)
     End Function
 End Class
