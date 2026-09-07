@@ -4,6 +4,7 @@
     Friend Const BUY As String = NameOf(BUY)
     Friend Const HELP As String = NameOf(HELP)
     Friend Const INVENTORY As String = NameOf(INVENTORY)
+    Friend Const PRICES As String = NameOf(PRICES)
     Friend Const PROMOTE As String = NameOf(PROMOTE)
     Friend Const RESPAWN As String = NameOf(RESPAWN)
     Friend Const STATUS As String = NameOf(STATUS)

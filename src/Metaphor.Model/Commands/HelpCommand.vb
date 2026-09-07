@@ -11,6 +11,7 @@ Friend NotInheritable Class HelpCommand
             "BUY: buys a commodity using jools `BUY 5 FOOD`",
             "HELP: shows help (you are here)",
             "INVENTORY: shows inventory",
+            "PRICES: list prices for buying commodities",
             "PROMOTE: assuming you have enough XP, you get a promotion",
             "RESPAWN: if yer dead, start over!",
             "STATUS: shows yer status",

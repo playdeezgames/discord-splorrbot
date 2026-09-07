@@ -13,6 +13,7 @@ Public Class UserModel
             {Commands.BUY, AddressOf BuyCommand.Handle},
             {Commands.HELP, AddressOf HelpCommand.Handle},
             {Commands.INVENTORY, AddressOf InventoryCommand.Handle},
+            {Commands.PRICES, AddressOf PricesCommand.Handle},
             {Commands.PROMOTE, AddressOf PromoteCommand.Handle},
             {Commands.RESPAWN, AddressOf RespawnCommand.Handle},
             {Commands.STATUS, AddressOf StatusCommand.Handle},
