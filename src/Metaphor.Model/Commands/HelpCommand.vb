@@ -10,6 +10,7 @@ Friend NotInheritable Class HelpCommand
             "BET: bets an amount of money on a coin flip `BET 1 HEADS` or `BET 1 TAILS`",
             "HELP: shows help (you are here)",
             "PROMOTE: assuming you have enough XP, you get a promotion",
+            "RESPAWN: if yer dead, start over!",
             "STATUS: shows yer status",
             "WORK: you perform demeaning physical labor for low pay"
         }

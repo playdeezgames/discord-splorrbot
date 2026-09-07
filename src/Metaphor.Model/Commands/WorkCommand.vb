@@ -11,7 +11,7 @@ Friend NotInheritable Class WorkCommand
             Return result
         End If
         If user.NextWorkTimestamp > DateTimeOffset.Now Then
-            result.Add($"You cannot work again until {user.NextWorkTimestamp}.")
+            result.Add($"You cannot work again for {user.NextWorkTimestamp - DateTimeOffset.Now}.")
             Return result
         End If
         result.Add("You work.")
