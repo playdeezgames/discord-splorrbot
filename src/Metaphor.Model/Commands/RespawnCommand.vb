@@ -4,7 +4,7 @@ Friend NotInheritable Class RespawnCommand
     Private Sub New() : End Sub
 
     Friend Shared Function Handle(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
-        'not subject to biology
+        'requires a LACK of biology
         If Not user.IsDead Then
             Return {"Yer not dead!"}
         End If

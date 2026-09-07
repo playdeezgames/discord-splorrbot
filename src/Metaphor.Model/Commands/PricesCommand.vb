@@ -2,6 +2,7 @@
 
 Friend NotInheritable Class PricesCommand
     Friend Shared Function Handle(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
+        'no biology
         Dim result As New List(Of String) From {
             "Prices:"
         }

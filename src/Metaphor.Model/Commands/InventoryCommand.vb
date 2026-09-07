@@ -4,6 +4,7 @@ Friend NotInheritable Class InventoryCommand
     Private Sub New() : End Sub
 
     Friend Shared Function Handle(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
+        'no biology
         Dim result As New List(Of String) From {
             "Inventory:"
         }
