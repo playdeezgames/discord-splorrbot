@@ -8,7 +8,9 @@ Friend NotInheritable Class HelpCommand
         Return {
             "Commands:",
             "BET: bets an amount of money on a coin flip `BET 1 HEADS` or `BET 1 TAILS`",
+            "BUY: buys a commodity using jools `BUY 5 FOOD`",
             "HELP: shows help (you are here)",
+            "INVENTORY: shows inventory",
             "PROMOTE: assuming you have enough XP, you get a promotion",
             "RESPAWN: if yer dead, start over!",
             "STATUS: shows yer status",

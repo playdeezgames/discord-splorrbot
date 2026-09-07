@@ -10,7 +10,9 @@ Public Class UserModel
     Private Shared ReadOnly tokenHandlers As New Dictionary(Of String, TokenHandler)(StringComparer.CurrentCultureIgnoreCase) From
         {
             {Commands.BET, AddressOf BetCommand.Handle},
+            {Commands.BUY, AddressOf BuyCommand.Handle},
             {Commands.HELP, AddressOf HelpCommand.Handle},
+            {Commands.INVENTORY, AddressOf InventoryCommand.Handle},
             {Commands.PROMOTE, AddressOf PromoteCommand.Handle},
             {Commands.RESPAWN, AddressOf RespawnCommand.Handle},
             {Commands.STATUS, AddressOf StatusCommand.Handle},

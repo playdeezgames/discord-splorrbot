@@ -11,4 +11,19 @@ Public Class UserData
     Property MaximumSatiety As Integer = 100
     Property Health As Integer = 100
     Property MaximumHealth As Integer = 100
+    Property Inventory As New Dictionary(Of String, Integer)(StringComparer.CurrentCultureIgnoreCase)
+
+    Public Sub AddItems(itemName As String, delta As Integer)
+        Dim quantity As Integer = 0
+        If Inventory.TryGetValue(itemName, quantity) Then
+            quantity += delta
+        Else
+            quantity = delta
+        End If
+        If quantity > 0 Then
+            Inventory(itemName) = quantity
+        Else
+            Inventory.Remove(itemName)
+        End If
+    End Sub
 End Class
