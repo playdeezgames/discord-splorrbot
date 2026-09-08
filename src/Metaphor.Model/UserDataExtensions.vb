@@ -2,7 +2,7 @@
 Imports Metaphor.Data
 Imports Metaphor.Model.PromoteCommand
 
-Friend Module UserExtensions
+Friend Module UserDataExtensions
     <Extension>
     Friend Function IsDead(user As UserData) As Boolean
         Return user.Health <= 0
