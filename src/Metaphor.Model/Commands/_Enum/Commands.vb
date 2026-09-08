@@ -2,6 +2,7 @@
     Private Sub New() : End Sub
     Friend Const BET As String = NameOf(BET)
     Friend Const BUY As String = NameOf(BUY)
+    Friend Const EAT As String = NameOf(EAT)
     Friend Const HELP As String = NameOf(HELP)
     Friend Const INVENTORY As String = NameOf(INVENTORY)
     Friend Const PRICES As String = NameOf(PRICES)

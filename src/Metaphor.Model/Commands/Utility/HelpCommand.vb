@@ -9,6 +9,7 @@ Friend NotInheritable Class HelpCommand
             "Commands:",
             "BET: bets an amount of money on a coin flip `BET 1 HEADS` or `BET 1 TAILS`",
             "BUY: buys a commodity using jools `BUY 5 FOOD`",
+            "EAT: consumes an item with yer mouth `EAT FOOD`",
             "HELP: shows help (you are here)",
             "INVENTORY: shows inventory",
             "PRICES: list prices for buying commodities",

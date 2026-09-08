@@ -11,6 +11,7 @@ Public Class CommandDispatcher
         {
             {Commands.BET, AddressOf BetCommand.Handle},
             {Commands.BUY, AddressOf BuyCommand.Handle},
+            {Commands.EAT, AddressOf EatCommand.Handle},
             {Commands.HELP, AddressOf HelpCommand.Handle},
             {Commands.INVENTORY, AddressOf InventoryCommand.Handle},
             {Commands.PRICES, AddressOf PricesCommand.Handle},

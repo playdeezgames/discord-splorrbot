@@ -63,4 +63,13 @@ Friend Module UserDataExtensions
             result?.Add($"You now have {user.Jools} jools.")
         End If
     End Sub
+    <Extension>
+    Friend Sub ChangeStomach(user As UserData, delta As Integer, result As List(Of String))
+        If delta = 0 Then
+            Return
+        End If
+        result?.Add($"You {If(delta > 0, "gain", "lose")} {delta} stomach.")
+        user.Stomach = Math.Clamp(user.Stomach + delta, 0, user.MaximumStomach)
+        result?.Add($"You now have {user.Stomach}/{user.MaximumStomach} stomach.")
+    End Sub
 End Module
