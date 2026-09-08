@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.CompilerServices
 Imports Metaphor.Data
+Imports Metaphor.Model.PromoteCommand
 
 Friend Module UserExtensions
     <Extension>
@@ -43,4 +44,15 @@ Friend Module UserExtensions
             End If
         End If
     End Sub
+    <Extension>
+    Friend Function WithBiology(user As UserData, biologyDelegate As BiologyDelegate) As IEnumerable(Of String)
+        Dim result As New List(Of String)
+        user.DoBiology(1, result)
+        If user.IsDead() Then
+            result.AddRange(UserModel.YerDead())
+            Return result
+        End If
+        biologyDelegate(result)
+        Return result
+    End Function
 End Module

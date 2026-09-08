@@ -6,8 +6,7 @@ Friend NotInheritable Class PromoteCommand
     Delegate Sub BiologyDelegate(result As List(Of String))
 
     Friend Shared Function Handle(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
-        Return UserModel.WithBiology(
-            user,
+        Return user.WithBiology(
             Sub(result)
                 If user.XP < user.XPGoal Then
                     result.Add("You don't have enough XP!")

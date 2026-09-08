@@ -1,5 +1,4 @@
 Imports Metaphor.Data
-Imports Metaphor.Model.PromoteCommand
 Friend Delegate Function TokenHandler(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
 Public Class UserModel
     Implements IUserModel
@@ -37,18 +36,6 @@ Public Class UserModel
 
     Public Shared Function YerDead() As IEnumerable(Of String)
         Return {"Dead people can't do that. Try `RESPAWN`."}
-    End Function
-
-
-    Friend Shared Function WithBiology(user As UserData, biologyDelegate As BiologyDelegate) As IEnumerable(Of String)
-        Dim result As New List(Of String)
-        user.DoBiology(1, result)
-        If user.IsDead() Then
-            result.AddRange(UserModel.YerDead())
-            Return result
-        End If
-        biologyDelegate(result)
-        Return result
     End Function
 
     Public Shared Function Create(user As UserData) As IUserModel

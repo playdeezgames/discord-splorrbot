@@ -5,8 +5,7 @@ Friend NotInheritable Class BuyCommand
     Private Sub New() : End Sub
 
     Friend Shared Function Handle(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
-        Return UserModel.WithBiology(
-            user,
+        Return user.WithBiology(
             Sub(result)
                 If tokens.Count = 0 Then
                     result.Add("Buy what? And how many? I have so many questions!")

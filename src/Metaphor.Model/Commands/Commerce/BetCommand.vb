@@ -13,8 +13,7 @@ Friend NotInheritable Class BetCommand
         }
 
     Friend Shared Function Handle(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
-        Return UserModel.WithBiology(
-            user,
+        Return user.WithBiology(
             Sub(result)
                 Dim bet As Integer = 0
                 If tokens.Count <> 2 OrElse

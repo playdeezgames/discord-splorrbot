@@ -4,8 +4,7 @@ Friend NotInheritable Class WorkCommand
     Private Sub New() : End Sub
 
     Friend Shared Function Handle(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
-        Return UserModel.WithBiology(
-            user,
+        Return user.WithBiology(
             Sub(result)
                 If user.NextWorkTimestamp > DateTimeOffset.Now Then
                     result.Add($"You cannot work again for {user.NextWorkTimestamp - DateTimeOffset.Now}.")
