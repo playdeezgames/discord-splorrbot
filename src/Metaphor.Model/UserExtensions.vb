@@ -49,10 +49,18 @@ Friend Module UserExtensions
         Dim result As New List(Of String)
         user.DoBiology(1, result)
         If user.IsDead() Then
-            result.AddRange(UserModel.YerDead())
+            result.AddRange(CommandDispatcher.YerDead())
             Return result
         End If
         biologyDelegate(result)
         Return result
     End Function
+    <Extension>
+    Friend Sub ChangeJools(user As UserData, delta As Integer, result As List(Of String))
+        If delta <> 0 Then
+            result?.Add($"You {If(delta > 0, "gain", "lose")} {delta} jools.")
+            user.Jools += delta
+            result?.Add($"You now have {user.Jools} jools.")
+        End If
+    End Sub
 End Module

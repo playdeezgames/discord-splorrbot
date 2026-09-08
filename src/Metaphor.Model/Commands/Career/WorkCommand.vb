@@ -11,10 +11,10 @@ Friend NotInheritable Class WorkCommand
                     Return
                 End If
                 result.Add("You work.")
-                result.Add("You earn 1 jools.")
-                user.Jools += user.PayRate
+
+                user.ChangeJools(user.PayRate, result)
+
                 user.NextWorkTimestamp = DateTimeOffset.Now.AddMinutes(1.0)
-                result.Add($"You now have {user.Jools} jools.")
                 result.Add($"You gain 1 XP.")
                 user.XP = Math.Min(user.XP + 1, user.XPGoal)
                 result.Add($"You how have {user.XP}/{user.XPGoal} XP.")

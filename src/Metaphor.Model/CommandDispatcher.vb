@@ -1,13 +1,13 @@
 Imports Metaphor.Data
-Friend Delegate Function TokenHandler(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
-Public Class UserModel
-    Implements IUserModel
+Friend Delegate Function CommandHandler(user As UserData, token As String, tokens As Queue(Of String)) As IEnumerable(Of String)
+Public Class CommandDispatcher
+    Implements ICommandDispatcher
     Private ReadOnly user As UserData
     Private Sub New(
                    user As UserData)
         Me.user = user
     End Sub
-    Private Shared ReadOnly tokenHandlers As New Dictionary(Of String, TokenHandler)(StringComparer.CurrentCultureIgnoreCase) From
+    Private Shared ReadOnly tokenHandlers As New Dictionary(Of String, CommandHandler)(StringComparer.CurrentCultureIgnoreCase) From
         {
             {Commands.BET, AddressOf BetCommand.Handle},
             {Commands.BUY, AddressOf BuyCommand.Handle},
@@ -19,10 +19,10 @@ Public Class UserModel
             {Commands.STATUS, AddressOf StatusCommand.Handle},
             {Commands.WORK, AddressOf WorkCommand.Handle}
         }
-    Public Function HandleCommand(tokens As Queue(Of String)) As IEnumerable(Of String) Implements IUserModel.HandleCommand
+    Public Function HandleCommand(tokens As Queue(Of String)) As IEnumerable(Of String) Implements ICommandDispatcher.HandleCommand
         Dim token As String = Nothing
         If tokens.TryDequeue(token) Then
-            Dim handler As TokenHandler = Nothing
+            Dim handler As CommandHandler = Nothing
             If tokenHandlers.TryGetValue(token, handler) Then
                 Return handler.Invoke(user, token, tokens)
             End If
@@ -38,7 +38,7 @@ Public Class UserModel
         Return {"Dead people can't do that. Try `RESPAWN`."}
     End Function
 
-    Public Shared Function Create(user As UserData) As IUserModel
-        Return New UserModel(user)
+    Public Shared Function Create(user As UserData) As ICommandDispatcher
+        Return New CommandDispatcher(user)
     End Function
 End Class

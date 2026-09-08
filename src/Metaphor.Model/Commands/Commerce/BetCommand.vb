@@ -20,20 +20,17 @@ Friend NotInheritable Class BetCommand
                     Not Integer.TryParse(tokens.Dequeue(), bet) OrElse
                     bet <= 0 OrElse
                     bet > user.Jools Then
-                    result.AddRange(UserModel.InvalidCommand())
+                    result.AddRange(CommandDispatcher.InvalidCommand())
                     Return
                 End If
                 Dim coin = RNG.FromGenerator(generator)
                 result.Add($"Result: {coin}")
                 Dim choice = tokens.Dequeue
                 If String.Equals(coin, choice, StringComparison.CurrentCultureIgnoreCase) Then
-                    result.Add($"You win {bet} jools!")
-                    user.Jools += bet
+                    user.ChangeJools(bet, result)
                 Else
-                    result.Add($"You lose {bet} jools!")
-                    user.Jools -= bet
+                    user.ChangeJools(-bet, result)
                 End If
-                result.Add($"You now have {user.Jools} jools.")
             End Sub)
     End Function
 End Class

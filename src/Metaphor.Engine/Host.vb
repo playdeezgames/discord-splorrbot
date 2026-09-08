@@ -11,7 +11,7 @@ Public Class Host
         Dim data = store.ReadUserData(userId)
         Dim result = String.Join(
             vbCrLf,
-            UserModel.Create(data).
+            CommandDispatcher.Create(data).
                 HandleCommand(
                     New Queue(Of String)(message.Split(" "c))))
         store.WriteUserdata(data)
