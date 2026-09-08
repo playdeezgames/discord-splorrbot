@@ -12,7 +12,9 @@ Public Class UserData
     Property Health As Integer = 100
     Property MaximumHealth As Integer = 100
     Property Inventory As New Dictionary(Of String, Integer)(StringComparer.CurrentCultureIgnoreCase)
-
+    Property Energy As Integer = 100
+    Property MaximumEnergy As Integer = 100
+    Property Comfort As Integer = 25
     Public Sub AddItems(itemName As String, delta As Integer)
         Dim quantity As Integer = 0
         If Inventory.TryGetValue(itemName, quantity) Then

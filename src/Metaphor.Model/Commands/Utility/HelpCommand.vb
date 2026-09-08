@@ -15,6 +15,7 @@ Friend NotInheritable Class HelpCommand
             "PRICES: list prices for buying commodities",
             "PROMOTE: assuming you have enough XP, you get a promotion",
             "RESPAWN: if yer dead, start over!",
+            "SLEEP: zzzzzzz",
             "STATUS: shows yer status",
             "WORK: you perform demeaning physical labor for low pay"
         }

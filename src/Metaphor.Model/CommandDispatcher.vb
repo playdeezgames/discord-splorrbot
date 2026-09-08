@@ -17,6 +17,7 @@ Public Class CommandDispatcher
             {Commands.PRICES, AddressOf PricesCommand.Handle},
             {Commands.PROMOTE, AddressOf PromoteCommand.Handle},
             {Commands.RESPAWN, AddressOf RespawnCommand.Handle},
+            {Commands.SLEEP, AddressOf SleepCommand.Handle},
             {Commands.STATUS, AddressOf StatusCommand.Handle},
             {Commands.WORK, AddressOf WorkCommand.Handle}
         }

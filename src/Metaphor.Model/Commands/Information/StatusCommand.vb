@@ -14,7 +14,8 @@ Friend NotInheritable Class StatusCommand
             $"XP: {user.XP}/{user.XPGoal}",
             $"Stomach: {user.Stomach}/{user.MaximumStomach}",
             $"Satiety: {user.Satiety}/{user.MaximumSatiety}",
-            $"Health: {user.Health}/{user.MaximumHealth}"
+            $"Health: {user.Health}/{user.MaximumHealth}",
+            $"Energy: {user.Energy}/{user.MaximumEnergy}"
             }
     End Function
 End Class

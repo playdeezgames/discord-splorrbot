@@ -8,6 +8,7 @@
     Friend Const PRICES As String = NameOf(PRICES)
     Friend Const PROMOTE As String = NameOf(PROMOTE)
     Friend Const RESPAWN As String = NameOf(RESPAWN)
+    Friend Const SLEEP As String = NameOf(SLEEP)
     Friend Const STATUS As String = NameOf(STATUS)
     Friend Const WORK As String = NameOf(WORK)
 End Class

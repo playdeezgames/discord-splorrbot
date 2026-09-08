@@ -32,6 +32,7 @@ Friend NotInheritable Class BuyCommand
                 End If
                 result.Add($"You buy {quantity} {itemName}.")
                 user.AddItems(itemName, quantity)
+                result.Add($"You now have {user.Inventory(itemName)} {itemName}.")
                 user.ChangeJools(-price, result)
             End Sub)
     End Function
